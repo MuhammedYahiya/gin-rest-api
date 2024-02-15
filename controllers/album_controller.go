@@ -23,3 +23,14 @@ func PostAlbums(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"data": newAlbum})
 
 }
+
+func GetAlbumsById(c *gin.Context) {
+	id := c.Param("id")
+	for _, album := range model.Albums {
+		if album.ID == id {
+			c.JSON(http.StatusOK, gin.H{"data": album})
+			return
+		}
+	}
+	c.JSON(http.StatusNotFound, gin.H{"message": "album not found"})
+}

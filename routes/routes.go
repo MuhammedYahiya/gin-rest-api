@@ -10,5 +10,6 @@ func InitializeRoutes(r *gin.Engine) {
 	{
 		albumRoutes.GET("/", controllers.GetAllAlbums)
 		albumRoutes.POST("/", controllers.PostAlbums)
+		albumRoutes.GET("/:id", controllers.GetAlbumsById)
 	}
 }
